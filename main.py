@@ -18,14 +18,14 @@ class Resistor(Screen):
         bands = int(str(self.colors.index(self.band1_spr.text))+str(self.colors.index(self.band2_spr.text)))
         multiplier = 10**(self.colors.index(self.multi_spr.text))
         resistance = bands*multiplier
-        if resistance % 1000000 == 0:
+        exp = ""
+        if resistance / 1000000 >= 1:
             exp = "M"
-            resistance //= 1000000
-        elif resistance % 1000 == 0:
+            resistance /= 1000000
+        elif resistance / 1000 >= 1:
             exp = "k"
-            resistance //= 1000
-        else:
-            exp = ""
+            resistance /= 1000
+
         self.resistance_input .text= str(resistance) + exp + "\u2126"
 
     def calculateBand(self):
