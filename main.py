@@ -1,9 +1,13 @@
 from kivy.app import App
-from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ObjectProperty
+from kivy.uix.button import Button
+from kivy.uix.screenmanager import ScreenManager, Screen
 
-class TentacleForm(BoxLayout):
+
+class Home(Screen):
+    pass
+
+class Resistor(Screen):
     colors = ["Black","Brown","Red","Orange","Yellow","Green","Blue","Violet","Grey","White"]
     resistance_input = ObjectProperty()
     band1_spr = ObjectProperty()
@@ -45,8 +49,11 @@ class TentacleForm(BoxLayout):
         self.band1_spr.text = self.colors[int(str(rest)[0])]
         self.band2_spr.text = self.colors[int(str(rest)[1])]
 
-
 class TentacleApp(App):
-    pass
+    def build(self):
+        sm = ScreenManager()
+        sm.add_widget(Home(name="home"))
+        sm.add_widget(Resistor(name="resistor"))
+        return sm
 
 TentacleApp().run()

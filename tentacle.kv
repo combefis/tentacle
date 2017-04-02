@@ -1,32 +1,43 @@
-TentacleForm:
+<Home>:
+  BoxLayout:
+    orientation: "horizontal"
+    Label:
+      text: "Welcome"
+    Button:
+      text: "Next"
+      on_press: root.manager.transition.direction = 'left'
+      on_press: root.manager.current = 'resistor'
+
+<Resistor>:
   resistance_input: resistance
   band1_spr: band1
   band2_spr: band2
   multi_spr: multi
-  orientation: "vertical"
   BoxLayout:
-    orientation: "horizontal"
-    size_hint_y: 1
-    Spinner:
-      id: band1
-      values: root.colors
-      text: "Black"
-      on_text: root.calculateRes()
-    Spinner:
-      id: band2
-      values: root.colors
-      text: "Black"
-      on_text: root.calculateRes()
-    Spinner:
-      id: multi
-      values: root.colors
-      text: "Black"
-      on_text: root.calculateRes()
-  BoxLayout:
-    size_hint_y: 3
-    TextInput:
-      id: resistance
-      text: ""
-      on_text_validate: root.calculateBand()
-      multiline: False
+    orientation: "vertical"
+    BoxLayout:
+      orientation: "horizontal"
+      size_hint_y: 1
+      Spinner:
+        id: band1
+        values: root.colors
+        text: "Black"
+        on_text: root.calculateRes()
+      Spinner:
+        id: band2
+        values: root.colors
+        text: "Black"
+        on_text: root.calculateRes()
+      Spinner:
+        id: multi
+        values: root.colors
+        text: "Black"
+        on_text: root.calculateRes()
+    BoxLayout:
+      size_hint_y: 3
+      TextInput:
+        id: resistance
+        text: ""
+        on_text_validate: root.calculateBand()
+        multiline: False
       
