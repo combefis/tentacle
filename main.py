@@ -1,8 +1,11 @@
 from kivy.app import App
 from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
 
-class TestApp(App):
-    def build(self):
-        return Button(text='Hello World')
+class Tentacle(BoxLayout):
+    pass
 
-TestApp().run()
+class TentacleApp(App):
+    pass
+
+TentacleApp().run()
