@@ -10,9 +10,9 @@
       orientation: "horizontal"
       BoxLayout:
         Button:
-          text: "Resistor"
+          text: "Capacitor"
           on_press: root.manager.transition.direction = 'right'
-          on_press: root.manager.current = 'resistor'
+          on_press: root.manager.current = 'capacitor'
       BoxLayout:
         Button:
           text: "Resistor"
@@ -59,6 +59,30 @@
           text: "Home"
           on_press: root.manager.transition.direction = 'right'
           on_press: root.manager.current = 'home'
+      BoxLayout:
+        Button:
+          text: "Capacitor"
+          on_press: root.manager.transition.direction = 'left'
+          on_press: root.manager.current = 'capacitor'
+
+<Capacitor>:
+  capacity_input: capacity
+  BoxLayout:
+    orientation: "vertical"
+    BoxLayout:
+      size_hint_y: 4
+      TextInput:
+        id: capacity
+        on_text_validate: root.calculateCapa()
+        multiline: False
+    BoxLayout:
+      size_hint_y: 0.4
+      orientation: "horizontal"
+      BoxLayout:
+        Button:
+          text: "Resistor"
+          on_press: root.manager.transition.direction = 'right'
+          on_press: root.manager.current = 'resistor'
       BoxLayout:
         Button:
           text: "Home"

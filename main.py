@@ -49,11 +49,28 @@ class Resistor(Screen):
         self.band1_spr.text = self.colors[int(str(rest)[0])]
         self.band2_spr.text = self.colors[int(str(rest)[1])]
 
+class Capacitor(Screen):
+    capacity_input = ObjectProperty()
+    def calculateCapa(self):
+        rest = int(self.capacity_input.text[0:2])
+        multiplier = int(self.capacity_input.text[2])
+        capacity = rest*(10**multiplier)
+        if capacity / 1000000 >= 1:
+            exp = '\u00b5'
+            capacity /= 1000000
+        elif capacity / 1000 >= 1:
+            exp = 'n'
+            capacity /= 1000
+        else:
+            exp = 'p'
+        self.capacity_input.text = str(capacity)+exp+"F"
+
 class TentacleApp(App):
     def build(self):
         sm = ScreenManager()
         sm.add_widget(Home(name="home"))
         sm.add_widget(Resistor(name="resistor"))
+        sm.add_widget(Capacitor(name="capacitor"))
         return sm
 
 TentacleApp().run()
