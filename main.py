@@ -13,7 +13,17 @@ class TentacleForm(BoxLayout):
     def calculateRes(self):
         bands = int(str(self.colors.index(self.band1_spr.text))+str(self.colors.index(self.band2_spr.text)))
         multiplier = 10**(self.colors.index(self.multi_spr.text))
-        self.resistance_input .text= str(bands*multiplier)
+        resistance = bands*multiplier
+        if resistance % 1000000 == 0:
+            exp = "M"
+            resistance //= 1000000
+        elif resistance % 1000 == 0:
+            exp = "k"
+            resistance //= 1000
+        else:
+            exp = ""
+        self.resistance_input .text= str(resistance) + exp + "\u2126"
+
 
 class TentacleApp(App):
     pass
