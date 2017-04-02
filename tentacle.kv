@@ -1,3 +1,20 @@
-Tentacle:
-  Label:
-    text: "hello world"
+TentacleForm:
+  orientation: "vertical"
+  BoxLayout:
+    orientation: "horizontal"
+    size_hint_y: 1
+    Spinner:
+      id: band1
+      values: root.colors
+    Spinner:
+      id: band2
+      values: root.colors
+    Spinner:
+      id: band3
+      values: root.colors
+  BoxLayout:
+    size_hint_y: 3
+    TextInput:
+      id: resistance
+      text: ""
+      
