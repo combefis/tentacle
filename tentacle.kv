@@ -1,4 +1,8 @@
 TentacleForm:
+  resistance_input: resistance
+  band1_spr: band1
+  band2_spr: band2
+  multi_spr: multi
   orientation: "vertical"
   BoxLayout:
     orientation: "horizontal"
@@ -6,12 +10,18 @@ TentacleForm:
     Spinner:
       id: band1
       values: root.colors
+      text: "Black"
+      on_text: root.calculateRes()
     Spinner:
       id: band2
       values: root.colors
+      text: "Black"
+      on_text: root.calculateRes()
     Spinner:
-      id: band3
+      id: multi
       values: root.colors
+      text: "Black"
+      on_text: root.calculateRes()
   BoxLayout:
     size_hint_y: 3
     TextInput:
