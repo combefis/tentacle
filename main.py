@@ -24,6 +24,27 @@ class TentacleForm(BoxLayout):
             exp = ""
         self.resistance_input .text= str(resistance) + exp + "\u2126"
 
+    def calculateBand(self):
+        print("calc")
+        try: 
+            resistance = int(self.resistance_input.text)
+        except ValueError:
+            print("erreur")
+
+        i = 0
+        multi = 1
+        while resistance % multi == 0:
+            rest = resistance//multi
+            if rest <= 10:
+                multiplier = self.colors[i-1]
+            else:
+                multiplier = self.colors[i]
+            i += 1
+            multi = 10 ** i
+        self.multi_spr.text = multiplier
+        self.band1_spr.text = self.colors[int(str(rest)[0])]
+        self.band2_spr.text = self.colors[int(str(rest)[1])]
+
 
 class TentacleApp(App):
     pass
