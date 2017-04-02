@@ -1,6 +1,10 @@
 # tentacle
 
-Toolbox app to find resistor, capacitor, transistor values from characteristics and conversely.
+Tentacle is a toolbox app to find values of resistor, capacitor, transistor, etc. from their characteristics and conversely. It is therefore a convenient two-way converter that you will always keep in your pocket.
+
+## Dependencies
+
+- [Kivy](https://kivy.org) (1.9.1)
 
 ## Contributors
 
