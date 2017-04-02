@@ -55,12 +55,12 @@ class Capacitor(Screen):
         rest = int(self.capacity_input.text[0:2])
         multiplier = int(self.capacity_input.text[2])
         capacity = rest*(10**multiplier)
-        if capacity // 1000000 >> 1:
+        if capacity / 1000000 >= 1:
             exp = '\u00b5'
-            capacity //= 1000000
-        elif capacity // 1000:
+            capacity /= 1000000
+        elif capacity / 1000 >= 1:
             exp = 'n'
-            capacity //= 1000
+            capacity /= 1000
         else:
             exp = 'p'
         self.capacity_input.text = str(capacity)+exp+"F"
