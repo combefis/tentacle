@@ -1,12 +1,23 @@
 <Home>:
   BoxLayout:
-    orientation: "horizontal"
-    Label:
-      text: "Welcome"
-    Button:
-      text: "Next"
-      on_press: root.manager.transition.direction = 'left'
-      on_press: root.manager.current = 'resistor'
+    orientation: "vertical"
+    BoxLayout:
+      size_hint_y: 4
+      Label:
+        text: "Welcome"
+    BoxLayout:
+      size_hint_y: 0.4
+      orientation: "horizontal"
+      BoxLayout:
+        Button:
+          text: "Resistor"
+          on_press: root.manager.transition.direction = 'right'
+          on_press: root.manager.current = 'resistor'
+      BoxLayout:
+        Button:
+          text: "Resistor"
+          on_press: root.manager.transition.direction = 'left'
+          on_press: root.manager.current = 'resistor'
 
 <Resistor>:
   resistance_input: resistance
@@ -40,4 +51,16 @@
         text: ""
         on_text_validate: root.calculateBand()
         multiline: False
-      
+    BoxLayout:
+      size_hint_y: 0.4
+      orientation: "horizontal"
+      BoxLayout:
+        Button:
+          text: "Home"
+          on_press: root.manager.transition.direction = 'right'
+          on_press: root.manager.current = 'home'
+      BoxLayout:
+        Button:
+          text: "Home"
+          on_press: root.manager.transition.direction = 'left'
+          on_press: root.manager.current = 'home'
